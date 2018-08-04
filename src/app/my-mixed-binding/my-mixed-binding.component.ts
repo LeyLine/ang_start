@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-my-mixed-binding',
-  templateUrl: './my-mixed-binding.component.html',
-  styleUrls: ['./my-mixed-binding.component.css']
+  selector: "app-my-mixed-binding",
+  template: `
+      <input type="text" [disabled]="isInputDisabled" />
+      <button (click)="toggleInput()"> Toggle input </button>
+  `
 })
-export class MyMixedBindingComponent implements OnInit {
+export class MyMixedBindingComponent {
+  isInputDisabled: boolean = false;
 
-  constructor() { }
-
-  ngOnInit() {
+  toggleInput() {
+    this.isInputDisabled = !this.isInputDisabled;
   }
-
 }
